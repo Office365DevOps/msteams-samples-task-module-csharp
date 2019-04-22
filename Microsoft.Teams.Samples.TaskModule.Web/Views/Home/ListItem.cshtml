@@ -1,0 +1,69 @@
+﻿@using System.Configuration;
+@{
+    ViewBag.Title = "Item List";
+}
+
+<h2>Item List</h2>
+
+<button onclick="createItem()" class="button-primary" style="width:100px">
+    Create
+</button>
+
+<table class="table itemList">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Purchase Link</th>
+            <th>Created User</th>
+            <th>Created Time</th>
+            <th>Stars</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in ItemDB.Items)
+            {
+                <tr>
+                    <td width="100"><img src="@item.Image" /></td>
+                    <td width="200" title="@item.Name">@item.Name</td>
+                    <td width="600" title="@item.Description">@item.Description</td>
+                    <td width="150"><a href="https://book.douban.com/subject/1013208/">link</a></td>
+                    <td>@item.CreatedUser</td>
+                    <td>@item.CreatedTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@item.StarCount</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<script type="text/javascript">
+    let host = "@ConfigurationManager.AppSettings["Host"]";
+    let taskInfo = {
+        title: null,
+        height: null,
+        width: null,
+        url: null,
+        card: null,
+        fallbackUrl: null,
+        completionBotId: null,
+    };
+
+    taskInfo.url = host + "/CreateItem";
+    taskInfo.title = "Create an item";
+    taskInfo.height = 510;
+    taskInfo.width = 800;
+
+    function createItem() {
+        microsoftTeams.tasks.startTask(taskInfo, submitHandler);
+    }
+
+    function submitHandler(error, result) {
+        if (error && error != 'User cancelled/closed the task module.') alert(error);
+        if (result && result.success)
+            window.location.reload();
+    }
+</script>
