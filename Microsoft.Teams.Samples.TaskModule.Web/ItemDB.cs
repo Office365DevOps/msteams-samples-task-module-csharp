@@ -45,6 +45,7 @@ namespace Microsoft.Teams.Samples.TaskModule.Web
                 UpdatedTime = DateTime.Now.AddHours(-81536) });
             items.Add(new ItemInfo()
             {
+                Id = Guid.NewGuid(),
                 Name = "Laptop Battery",
                 Description = "BattPit: Laptop Battery Replacement for Samsung Notebook 9 NP900X5L-K02US, AA-PBUN4AR, Notebook 9 900X5L, ATIV Book 9 Spin 940X3L (7.7V 4000mAh 31Wh)",
                 CreatedUser = "Jerry Wu",
@@ -55,6 +56,7 @@ namespace Microsoft.Teams.Samples.TaskModule.Web
             });
             items.Add(new ItemInfo()
             {
+                Id = Guid.NewGuid(),
                 Name = "Microsoft Surface Book 2",
                 Description = "Microsoft Surface Book 2 HNN-00001 Intel Core i7 8th Gen 8650U (1.90 GHz) 16 GB Memory 1 TB PCIe SSD NVIDIA GeForce GTX 1050 13.5",
                 CreatedUser = "Tom Yang",
