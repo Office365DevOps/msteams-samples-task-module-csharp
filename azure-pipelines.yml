@@ -15,6 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- script: dotnet build
+  displayName: 'dotnet build'
+
+- script: |
+    dotnet test test/test.csproj
+  displayName: 'dotnet test'
+
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
