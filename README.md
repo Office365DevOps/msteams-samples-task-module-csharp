@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/pp0197/default/_apis/build/status/paul-cheung.msteams-samples-task-module-csharp?branchName=master)](https://dev.azure.com/pp0197/default/_build/latest?definitionId=1&branchName=master)
+
 # Developing and debugging a Task Module locally
 
 ## Prerequisites
