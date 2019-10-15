@@ -66,4 +66,9 @@
         if (result && result.success)
             window.location.reload();
     }
+
+    function goToChat() {
+        var chatLink = "https://teams.microsoft.com/l/chat/0/0?users=yy@mstech2018.onmicrosoft.com&topicName=Prep%20For%20Meeting%20Tomorrow&message=Hi%20folks%2C%20kicking%20off%20a%20chat%20about%20our%20meeting%20tomorrow";
+        microsoftTeams.executeDeepLink(chatLink);
+    }
 </script>

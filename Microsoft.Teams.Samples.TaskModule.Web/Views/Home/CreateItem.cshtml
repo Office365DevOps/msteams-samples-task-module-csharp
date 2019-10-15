@@ -50,6 +50,8 @@
     </div>
     <input name="createdUser" type="hidden" />
     <button onclick="submitForm()" class="button-primary">Submit</button>
+    <br />
+    <button onclick="goToChat()" class="button-primary">Chat</button>
 </div>
 <script type="text/javascript"> 
     microsoftTeams.getContext(function (context) {
@@ -57,4 +59,13 @@
             $("input[name=createdUser]").val(context.userPrincipalName);
         }
     });
+
+    function goToChat() {
+        // Just close task module without parameter;
+        microsoftTeams.tasks.submitTask();
+
+        // Go to conversation;
+        var chatLink = "https://teams.microsoft.com/l/chat/0/0?users=yy@mstech2018.onmicrosoft.com&topicName=topicname&message=initMessage";
+        microsoftTeams.executeDeepLink(chatLink);
+    }
 </script>
